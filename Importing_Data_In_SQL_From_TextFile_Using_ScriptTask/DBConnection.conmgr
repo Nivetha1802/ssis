@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DBConnection"
+  DTS:DTSID="{C4941BE6-250B-4677-AB47-665355F06CB5}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::pDB_Connection]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=LAPTOP-VLSKB6S5\MYSQLSERVER;Initial Catalog=SSIS_FileData;Integrated Security=True;Encrypt=False;Application Name=SSIS-ReadingTextFile-{C4941BE6-250B-4677-AB47-665355F06CB5}LAPTOP-VLSKB6S5\MYSQLSERVER.SSIS_FileData;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

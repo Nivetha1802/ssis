@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Importing_Data_In_SQL_From_TextFile_Using_ScriptTask", "Importing_Data_In_SQL_From_TextFile_Using_ScriptTask\Importing_Data_In_SQL_From_TextFile_Using_ScriptTask.dtproj", "{DA149A29-B6A0-4367-A0A3-FB1708D1C297}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA149A29-B6A0-4367-A0A3-FB1708D1C297}.Development|Default.ActiveCfg = Development
+		{DA149A29-B6A0-4367-A0A3-FB1708D1C297}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5744E6E-12E6-41DD-BF39-3843B7DE7994}
+	EndGlobalSection
+EndGlobal
