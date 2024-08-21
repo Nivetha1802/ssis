@@ -1,0 +1,140 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/16/2024 10:46:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-VLSKB6S5"
+  DTS:CreatorName="LAPTOP-VLSKB6S5\Nivetha"
+  DTS:DTSID="{4B410AE4-3798-445E-AA57-D8852F754A48}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Moving_files"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{59B9FAB7-2424-411B-8AAC-0C54C73939F7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{650CCAB3-4D4F-422D-94A2-862DE05C90C0}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::DestinationFolderPath]+&quot;\\&quot;+RIGHT( @[User::SourceFilePath], FINDSTRING(REVERSE( @[User::SourceFilePath]),&quot;\\&quot;,1)-1)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Nivetha\OneDrive\Desktop\Text Files\Archive\NG_Customer - Copy (1).csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7E60969B-E9E8-4D5C-9F61-FA6B6A7A3A87}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::pDestinationFolderPath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Nivetha\OneDrive\Desktop\Text Files\Archive</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{35393AD6-A860-448F-8248-4BD791389B9C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::pSourceFilePath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Nivetha\OneDrive\Desktop\Text Files\NG_Customer - Copy (1).csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FeLC_Iterate_Excel_Files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{50CD02BF-09AB-44C5-A9AD-7894FB25F309}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FeLC_Iterate_Excel_Files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{17DEEE83-3A65-41BA-A461-5E4836108D93}"
+        DTS:ObjectName="{17DEEE83-3A65-41BA-A461-5E4836108D93}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Nivetha\OneDrive\Desktop\Text Files\NG_Customer_Original" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FeLC_Iterate_Excel_Files\FST_Move_Each_File_To_Destination"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{49D69857-2A0B-422C-86F9-10A4B6E7A9E6}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FST_Move_Each_File_To_Destination"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::SourceFilePath"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::DestinationFilePath"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{71A2F23C-E28D-4203-9D09-1A918E41F212}"
+          DTS:ObjectName="{71A2F23C-E28D-4203-9D09-1A918E41F212}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::SourceFilePath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="264.8,41.6"
+          Id="Package\FeLC_Iterate_Excel_Files\FST_Move_Each_File_To_Destination"
+          TopLeft="35.2999791011223,22.7333322183954" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="344,119.2"
+          Size="344,162.4"
+          Id="Package\FeLC_Iterate_Excel_Files"
+          TopLeft="347.499981013438,94.4666660097573" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Employee_DB"
+  DTS:DTSID="{F9F1167A-0FC8-4232-9F29-8BA33E4EABE8}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::pEmployee_DB_Server_Name]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=LAPTOP-VLSKB6S5\MYSQLSERVER;Initial Catalog=Employees;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-{F9F1167A-0FC8-4232-9F29-8BA33E4EABE8}Employee_DB;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
